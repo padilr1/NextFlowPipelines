@@ -1,0 +1,3 @@
+# Upon examining the VCF file, it appears that the GATK-recommended quality filters, such as those examining read depth and quality (e.g. QD (Quality by depth)), have already been applied. In addition, the Hardy–Weinberg Equilibrium (HWE) test has already been performed on the variants. Therefore, I will proceed to retain variants that pass the HWE filter. Futhermore, I will exclude those with a missingness rate (F_MISSING) greater than 0.25, hence any site with > 25% missing data will be dropped to avoid artifacts influencing the results.
+bcftools filter -i'HWE=1 && F_MISSING<0.25' -o out/filt_candidate_EOPC_variants.vcf candidate_EOPC_variants.vcf
+
